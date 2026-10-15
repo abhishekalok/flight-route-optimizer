@@ -1,5 +1,10 @@
 # Flight Route Optimizer
 
+![CI](https://github.com/abhishekalok/flight-route-optimizer/actions/workflows/ci.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
+![Tests: pytest](https://img.shields.io/badge/tests-pytest-brightgreen.svg)
+
 A graph-based travel planner that finds the **cheapest** or **fastest** flight
 paths between cities, built on a directed weighted graph with **Dijkstra's** and
 **Bellman-Ford** algorithms.
@@ -184,3 +189,29 @@ python build_dataset.py
 - A natural next step is to model time-dependent layovers, multiple carriers
   per leg, or a `--avoid` flag for cities/airlines; the graph representation
   already supports them.
+
+---
+
+## Testing
+
+```bash
+pip install pytest
+pytest -q
+```
+
+The suite checks the dataset invariants, confirms that Dijkstra and Bellman-Ford
+agree on the optimal cost, verifies that `--max-stops` is honoured, and runs the
+CLI end to end. CI runs it on Python 3.10, 3.11 and 3.12.
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). In short: fork, branch, add a test, run
+`pytest -q`, and open a pull request.
+
+---
+
+## License
+
+Released under the [MIT License](LICENSE).
